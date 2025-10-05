@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lamborghini - LuxDrive</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #000;
+      color: #ddd;
+    }
+
+    /* Navbar */
+    .navbar {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 60px;
+      background:#111;
+      position:sticky;
+      top:0;
+      z-index:1000;
+      box-shadow: 0 2px 15px rgba(255, 215, 0, 0.25);
+      border-bottom: 2px solid #f5c542;
+    }
+
+    .logo {
+      font-size:1.6rem;
+      font-weight:bold;
+      color:#f5c542;
+      text-shadow: 0 0 10px #f5c542, 0 0 20px rgba(245,197,66,0.7);
+    }
+
+    .navbar ul {
+      list-style:none;
+      display:flex;
+      gap:20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar li a {
+      text-decoration:none;
+      color:#f5c542;
+      padding:8px 14px;
+      border:1px solid rgba(245,197,66,0.6);
+      border-radius:20px;
+      transition:all .3s ease;
+      font-weight:500;
+    }
+
+    .navbar li a:hover {
+      background:#f5c542;
+      color:#111;
+      box-shadow:0 0 12px #f5c542;
+      border-color:#f5c542;
+    }
+
+    /* Garis emas di bawah navbar */
+    .gold-line {
+      height: 3px;
+      width: 100%;
+      background: linear-gradient(90deg, transparent, #ffd700, transparent);
+      box-shadow: 0 0 15px #ffd700;
+    }
+
+    /* Hero Lamborghini */
+    .hero {
+      height: 90vh;
+      background: url('https://source.unsplash.com/1600x900/?lamborghini,aventador') center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.55);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+    }
+
+    .hero-content h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      color: #ffd700;
+      text-shadow: 0 0 15px #ffd700, 0 0 35px rgba(255,215,0,0.8);
+    }
+
+    .btn-explore {
+      display: inline-block;
+      padding: 12px 25px;
+      border: 2px solid #ffd700;
+      color: #ffd700;
+      background: transparent;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-explore:hover {
+      background: #ffd700;
+      color: #000;
+      box-shadow: 0 0 25px #ffd700;
+    }
+
+    /* Section slider Lamborghini */
+    .slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      gap: 20px;
+      padding: 30px;
+      background: #111;
+      border-top: 2px solid #d4af37;
+      border-bottom: 2px solid #d4af37;
+    }
+
+    .slider::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .slider::-webkit-scrollbar-thumb {
+      background: #ffd700;
+      border-radius: 10px;
+    }
+
+    .car-card {
+      flex: 0 0 auto;
+      width: 240px;
+      background: radial-gradient(circle at top, #1a1a1a, #000);
+      border-radius: 15px;
+      overflow: hidden;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.25);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .car-card:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 35px rgba(255, 215, 0, 0.8), 0 0 60px rgba(255, 215, 0, 0.6);
+    }
+
+    .car-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-bottom: 1px solid rgba(255,215,0,0.15);
+    }
+
+    .car-card p {
+      margin: 12px 0;
+      color: #ffd700;
+      font-weight: bold;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+    }
+
+    /* Blog / History */
+    .blog {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .blog h2 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 40px;
+      color: #ffd700;
+      text-shadow: 0 0 12px rgba(255, 215, 0, 0.6);
+    }
+
+    .post {
+      display: flex;
+      align-items: center;
+      background: #111;
+      margin-bottom: 25px;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid #222;
+      transition: 0.3s ease;
+    }
+
+    .post:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+    }
+
+    .post img {
+      width: 220px;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-right: 20px;
+      box-shadow: 0 0 15px rgba(255,215,0,0.4);
+    }
+
+    .post p {
+      margin: 0;
+      font-size: 1em;
+      line-height: 1.6;
+      color: #ddd;
+    }
+
+    /* Footer */
+    footer {
+      background: #111;
+      color: #bbb;
+      text-align: center;
+      padding: 25px;
+      margin-top: 40px;
+      border-top: 2px solid #d4af37;
+      font-size: 0.95em;
+      letter-spacing: 1px;
+      text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">LuxDrive</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="#brands">Brands</a></li>
+        <li><a href="#models">Models</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="gold-line"></div>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Lamborghini</h1>
+      <a href="#slider" class="btn-explore">Explore Models</a>
+    </div>
+  </section>
+
+  <!-- Slider Lamborghini -->
+  <section class="slider" id="slider">
+    <div class="car-card"><img src="img/lamborghini.jpg.jpeg"><p>Aventador svj</p></div>
+    <div class="car-card"><img src="img/huracantecnica.jpeg"><p>Huracán tecnica</p></div>
+    <div class="car-card"><img src="img/temerario2.jpg"><p>Temerario</p></div>
+    <div class="car-card"><img src="img/revuelto.jpg"><p>Revuelto</p></div>
+    <div class="car-card"><img src="img/veneno roadster.jpeg"><p>Veneno roadster</p></div>
+    <div class="car-card"><img src="img/Terzo Millennio.jpg"><p>Terzo Millennio</p></div>
+    <div class="car-card"><img src="img/centenario coupe.jpeg"><p>Centenario coupe</p></div>
+    <div class="car-card"><img src="img/Lamborghini Gallardo squadra.jpeg"><p>Gallardo squadra</p></div>
+    <div class="car-card"><img src="img/reventon.jpeg"><p>Reventón</p></div>
+    <div class="car-card"><img src="img/sian fkp.jpg"><p>Sian FKP37</p></div>
+  </section>
+
+  <!-- Blog -->
+  <section class="blog" id="history">
+    <h2>Sejarah & Model Lamborghini</h2>
+    <div class="post"><img src="img/lamborghini.jpg.jpeg"><p>
+      Lamborghini Aventador SVJ adalah versi paling ekstrem dari Aventador, dengan mesin V12 6,5 liter bertenaga 770 hp yang mampu melesat 0–100 km/jam dalam 2,8 detik. Dilengkapi sistem penggerak all-wheel drive, transmisi ISR 7-percepatan, dan aerodinamika aktif ALA, mobil ini menawarkan stabilitas dan handling presisi tinggi.
+    </p></div>
+    <div class="post"><img src="img/huracantecnica.jpeg"><p>
+      Lamborghini Huracán Tecnica menyeimbangkan performa dan kenyamanan. Mesin V10 5,2L 640 hp dan sistem LDVI memberi handling presisi tinggi dengan desain agresif dan interior premium.
+    </p></div>
+    <div class="post"><img src="img/temerario2.jpg"><p>
+      Lamborghini Temerario menggabungkan mesin V8 twin-turbo 4.0L 789 hp dan tiga motor listrik total 907 hp, menciptakan akselerasi 0–100 km/jam dalam 2,7 detik dan kecepatan 343 km/jam.
+    </p></div>
+    <div class="post"><img src="img/revuelto.jpg"><p>
+      Lamborghini Revuelto adalah supercar hybrid pertama Lamborghini, dengan mesin V12 dan tiga motor listrik total 1.015 hp. Akselerasi 0–100 km/jam hanya 2,5 detik.
+    </p></div>
+    <div class="post"><img src="img/veneno roadster.jpeg"><p>
+      Lamborghini Veneno Roadster dirancang untuk performa ekstrem, mesin V12 750 hp, akselerasi 0–100 km/jam dalam 2,9 detik, dan desain aerodinamis agresif.
+    </p></div>
+    <div class="post"><img src="img/Terzo Millennio.jpg"><p>
+      Lamborghini Terzo Millennio adalah konsep hypercar masa depan bertenaga listrik penuh dengan desain futuristik dan body serat karbon aktif.
+    </p></div>
+    <div class="post"><img src="img/centenario coupe.jpeg"><p>
+      Lamborghini Centenario Coupe dibuat untuk memperingati ulang tahun ke-100 Ferruccio Lamborghini, dengan mesin V12 770 hp dan performa ekstrem.
+    </p></div>
+    <div class="post"><img src="img/Lamborghini Gallardo squadra.jpeg"><p>
+      Lamborghini Gallardo Squadra Corse menonjolkan performa dengan mesin V10 570 hp dan karakter balap yang kuat.
+    </p></div>
+    <div class="post"><img src="img/reventon.jpeg"><p>
+      Lamborghini Reventón adalah edisi terbatas dengan desain terinspirasi pesawat tempur, mesin V12 650 hp dan body karbon ringan.
+    </p></div>
+    <div class="post"><img src="img/sian fkp.jpg"><p>
+      Lamborghini Sián FKP 37 menggunakan sistem hybrid ringan dengan total 819 hp, menjadikannya salah satu hypercar paling eksklusif Lamborghini.
+    </p></div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 LuxDrive. Semua Hak Dilindungi.</p>
+  </footer>
+
+</body>
+</html>

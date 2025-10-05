@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lamborghini Blog - LuxDrive</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #ccc;
+    }
+
+    /* Header tinggi & elegan */
+    header {
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #111;
+      border-bottom: 2px solid #d4af37;
+      text-align: center;
+      padding: 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      color: #d4af37;
+      font-size: 3em;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+    }
+
+    header .tagline {
+      font-style: italic;
+      color: #ffd700;
+      font-size: 1.5em;
+      margin-top: 15px;
+    }
+
+    /* Slider */
+    .slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      gap: 20px;
+      padding: 20px;
+      background: #111;
+      border-bottom: 2px solid #d4af37;
+    }
+
+    .slider::-webkit-scrollbar {
+      height: 10px;
+    }
+
+    .slider::-webkit-scrollbar-thumb {
+      background: #d4af37;
+      border-radius: 5px;
+    }
+
+    .car-card {
+      flex: 0 0 auto;
+      width: 200px;
+      background: #222;
+      border: 2px solid #d4af37;
+      border-radius: 10px;
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .car-card:hover {
+      transform: scale(1.05);
+    }
+
+    .car-card img {
+      width: 100%;
+      height: 130px;
+      object-fit: cover;
+    }
+
+    .car-card p {
+      margin: 10px 0;
+      color: #d4af37;
+      font-weight: bold;
+    }
+
+    /* Blog */
+    .blog {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .blog h2 {
+      text-align: center;
+      color: #d4af37;
+      margin-bottom: 30px;
+      font-size: 2em;
+    }
+
+    .post {
+      display: flex;
+      align-items: center;
+      background: #111;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #333;
+    }
+
+    .post img {
+      width: 200px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-right: 20px;
+      border: 2px solid #d4af37;
+    }
+
+    .post p {
+      margin: 0;
+      font-size: 1em;
+      line-height: 1.5;
+    }
+
+    footer {
+      background-color: #111;
+      color: #ccc;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      border-top: 2px solid #d4af37;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header tinggi & elegan -->
+  <header>
+    <h1>LuxDrive</h1>
+    <div class="tagline">The Art of Speed and Luxury</div>
+  </header>
+
+  <!-- Slider setelah header -->
+  <section class="slider">
+    <div class="car-card">
+      <img src="https://source.unsplash.com/400x300/?lamborghini,aventador" alt="Lamborghini Aventador">
+      <p>Aventador</p>
+    </div>
+    <div class="car-card">
+      <img src="https://source.unsplash.com/400x300/?lamborghini,huracan" alt="Lamborghini Huracán">
+      <p>Huracán</p>
+    </div>
+    <div class="car-card">
+      <img src="https://source.unsplash.com/400x300/?lamborghini,urus" alt="Lamborghini Urus">
+      <p>Urus</p>
+    </div>
+    <div class="car-card">
+      <img src="https://source.unsplash.com/400x300/?lamborghini,revuelto" alt="Lamborghini Revuelto">
+      <p>Revuelto</p>
+    </div>
+    <div class="car-card">
+      <img src="https://source.unsplash.com/400x300/?lamborghini,veneno" alt="Lamborghini Veneno">
+      <p>Veneno</p>
+    </div>
+    <div class="car-card">
+      <img src="https://source.unsplash.com/400x300/?lamborghini,countach" alt="Lamborghini Countach">
+      <p>Countach</p>
+    </div>
+    <div class="car-card">
+      <img src="https://source.unsplash.com/400x300/?lamborghini,centenario" alt="Lamborghini Centenario">
+      <p>Centenario</p>
+    </div>
+    <div class="car-card">
+      <img src="https://source.unsplash.com/400x300/?lamborghini,gallardo" alt="Lamborghini Gallardo">
+      <p>Gallardo</p>
+    </div>
+    <div class="car-card">
+      <img src="https://source.unsplash.com/400x300/?lamborghini,reventon" alt="Lamborghini Reventón">
+      <p>Reventón</p>
+    </div>
+    <div class="car-card">
+      <img src="https://source.unsplash.com/400x300/?lamborghini,egoista" alt="Lamborghini Egoista">
+      <p>Egoista</p>
+    </div>
+  </section>
+
+  <!-- Blog section -->
+  <section class="blog">
+    <h2>Sejarah & Model Lamborghini</h2>
+
+    <div class="post">
+      <img src="https://source.unsplash.com/400x300/?lamborghini,gallardo" alt="Post 1">
+      <p>Lamborghini Gallardo adalah salah satu model paling populer dengan desain agresif dan performa luar biasa.</p>
+    </div>
+
+    <div class="post">
+      <img src="https://source.unsplash.com/400x300/?lamborghini,aventador" alt="Post 2">
+      <p>Aventador hadir dengan mesin V12 yang bertenaga, menjadi ikon modern Lamborghini.</p>
+    </div>
+
+    <div class="post">
+      <img src="https://source.unsplash.com/400x300/?lamborghini,huracan" alt="Post 3">
+      <p>Huracán dikenal dengan handling presisi dan teknologi canggih, penerus Gallardo yang sukses.</p>
+    </div>
+
+    <div class="post">
+      <img src="https://source.unsplash.com/400x300/?lamborghini,urus" alt="Post 4">
+      <p>Urus adalah SUV super pertama Lamborghini, menggabungkan kemewahan dan performa ekstrem.</p>
+    </div>
+
+    <div class="post">
+      <img src="https://source.unsplash.com/400x300/?lamborghini,diablo" alt="Post 5">
+      <p>Diablo adalah supercar ikonik tahun 90-an dengan desain khas dan mesin V12 buas.</p>
+    </div>
+
+    <div class="post">
+      <img src="https://source.unsplash.com/400x300/?lamborghini,countach" alt="Post 6">
+      <p>Countach menjadi legenda otomotif dengan desain futuristik yang mendefinisikan Lamborghini.</p>
+    </div>
+
+    <div class="post">
+      <img src="https://source.unsplash.com/400x300/?lamborghini,revuelto" alt="Post 7">
+      <p>Revuelto adalah hypercar terbaru Lamborghini dengan teknologi hybrid performa tinggi.</p>
+    </div>
+
+    <div class="post">
+      <img src="https://source.unsplash.com/400x300/?lamborghini,centenario" alt="Post 8">
+      <p>Centenario dibuat untuk merayakan 100 tahun kelahiran Ferruccio Lamborghini.</p>
+    </div>
+
+    <div class="post">
+      <img src="https://source.unsplash.com/400x300/?lamborghini,veneno" alt="Post 9">
+      <p>Veneno adalah salah satu model paling langka dan mahal Lamborghini.</p>
+    </div>
+
+    <div class="post">
+      <img src="https://source.unsplash.com/400x300/?lamborghini,egoista" alt="Post 10">
+      <p>Egoista adalah konsep unik dengan desain kokpit tunggal yang futuristik.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 LuxDrive. Semua Hak Dilindungi.</p>
+  </footer>
+
+</body>
+</html>

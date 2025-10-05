@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aston Martin - LuxDrive</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #000;
+      color: #ddd;
+    }
+
+    /* Navbar */
+    .navbar {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 60px;
+      background:#111;
+      position:sticky;
+      top:0;
+      z-index:1000;
+      box-shadow: 0 2px 15px rgba(255, 215, 0, 0.25);
+      border-bottom: 2px solid #f5c542;
+    }
+
+    .logo {
+      font-size:1.6rem;
+      font-weight:bold;
+      color:#f5c542;
+      text-shadow: 0 0 10px #f5c542, 0 0 20px rgba(245,197,66,0.7);
+    }
+
+    .navbar ul {
+      list-style:none;
+      display:flex;
+      gap:20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar li a {
+      text-decoration:none;
+      color:#f5c542;
+      padding:8px 14px;
+      border:1px solid rgba(245,197,66,0.6);
+      border-radius:20px;
+      transition:all .3s ease;
+      font-weight:500;
+    }
+
+    .navbar li a:hover {
+      background:#f5c542;
+      color:#111;
+      box-shadow:0 0 12px #f5c542;
+      border-color:#f5c542;
+    }
+
+    .gold-line {
+      height: 3px;
+      width: 100%;
+      background: linear-gradient(90deg, transparent, #ffd700, transparent);
+      box-shadow: 0 0 15px #ffd700;
+    }
+
+    /* Hero */
+    .hero {
+      height: 90vh;
+      background: url('https://source.unsplash.com/1600x900/?aston-martin,db11') center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.55);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+    }
+
+    .hero-content h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      color: #ffd700;
+      text-shadow: 0 0 15px #ffd700, 0 0 35px rgba(255,215,0,0.8);
+    }
+
+    .btn-explore {
+      display: inline-block;
+      padding: 12px 25px;
+      border: 2px solid #ffd700;
+      color: #ffd700;
+      background: transparent;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-explore:hover {
+      background: #ffd700;
+      color: #000;
+      box-shadow: 0 0 25px #ffd700;
+    }
+
+    /* Slider */
+    .slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      gap: 20px;
+      padding: 30px;
+      background: #111;
+      border-top: 2px solid #d4af37;
+      border-bottom: 2px solid #d4af37;
+    }
+
+    .slider::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .slider::-webkit-scrollbar-thumb {
+      background: #ffd700;
+      border-radius: 10px;
+    }
+
+    .car-card {
+      flex: 0 0 auto;
+      width: 240px;
+      background: radial-gradient(circle at top, #1a1a1a, #000);
+      border-radius: 15px;
+      overflow: hidden;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.25);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .car-card:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 35px rgba(255, 215, 0, 0.8), 0 0 60px rgba(255, 215, 0, 0.6);
+    }
+
+    .car-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-bottom: 1px solid rgba(255,215,0,0.15);
+    }
+
+    .car-card p {
+      margin: 12px 0;
+      color: #ffd700;
+      font-weight: bold;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+    }
+
+    /* Blog / History */
+    .blog {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .blog h2 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 40px;
+      color: #ffd700;
+      text-shadow: 0 0 12px rgba(255, 215, 0, 0.6);
+    }
+
+    .post {
+      display: flex;
+      align-items: center;
+      background: #111;
+      margin-bottom: 25px;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid #222;
+      transition: 0.3s ease;
+    }
+
+    .post:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+    }
+
+    .post img {
+      width: 220px;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-right: 20px;
+      box-shadow: 0 0 15px rgba(255,215,0,0.4);
+    }
+
+    .post p {
+      margin: 0;
+      font-size: 1em;
+      line-height: 1.7;
+      color: #ddd;
+    }
+
+    footer {
+      background: #111;
+      color: #bbb;
+      text-align: center;
+      padding: 25px;
+      margin-top: 40px;
+      border-top: 2px solid #d4af37;
+      font-size: 0.95em;
+      letter-spacing: 1px;
+      text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+    }
+
+    @media (max-width: 700px) {
+      .navbar { padding: 14px 20px; }
+      .hero-content h1 { font-size: 2.2em; }
+      .car-card { width: 200px; }
+      .post { flex-direction: column; text-align: center; }
+      .post img { margin: 0 0 12px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">LuxDrive</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="#brands">Brands</a></li>
+        <li><a href="#models">Models</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="gold-line"></div>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Aston Martin</h1>
+      <a href="#slider" class="btn-explore">Explore Models</a>
+    </div>
+  </section>
+
+  <!-- Slider Aston Martin -->
+  <section class="slider" id="slider">
+    <div class="car-card"><img src="img/db11.jpg" alt="DB11"><p>DB11</p></div>
+    <div class="car-card"><img src="img/dbs-superleggera.jpg" alt="DBS Superleggera"><p>DBS Superleggera</p></div>
+    <div class="car-card"><img src="img/vantage.jpg" alt="Vantage"><p>Vantage</p></div>
+    <div class="car-card"><img src="img/valhalla.jpg" alt="Valhalla"><p>Valhalla</p></div>
+    <div class="car-card"><img src="img/rapide-e.jpg" alt="Rapide E"><p>Rapide E</p></div>
+    <div class="car-card"><img src="img/one-77.jpg" alt="One-77"><p>One-77</p></div>
+    <div class="car-card"><img src="img/vanquish.jpg" alt="Vanquish"><p>Vanquish</p></div>
+    <div class="car-card"><img src="img/vulcan.jpg" alt="Vulcan"><p>Vulcan</p></div>
+  </section>
+
+  <!-- Blog / Deskripsi -->
+  <section class="blog" id="history">
+    <h2>Sejarah & Model Aston Martin</h2>
+
+    <div class="post">
+      <img src="img/db11.jpg" alt="DB11">
+      <p><strong>Aston Martin DB11</strong> — DB11 adalah grand tourer modern dengan desain elegan dan performa mesin V12 yang halus namun bertenaga. Mobil ini menampilkan keseimbangan sempurna antara kenyamanan berkendara jarak jauh dan handling presisi. Material premium, aerodinamika aktif, serta interior kustom memberikan pengalaman eksklusif khas Aston Martin, menjadikannya mobil impian para penggemar GT mewah.</p>
+    </div>
+
+    <div class="post">
+      <img src="img/dbs-superleggera.jpg" alt="DBS Superleggera">
+      <p><strong>Aston Martin DBS Superleggera</strong> — DBS Superleggera memadukan performa ekstrem dan keanggunan khas GT. Mesin V12 twin-turbo menghasilkan tenaga besar dengan akselerasi cepat, sedangkan bodi ringan dan aerodinamika canggih meningkatkan stabilitas di kecepatan tinggi. Interior mewah dengan teknologi modern melengkapi pengalaman berkendara eksklusif dan menegaskan status mobil sebagai hyper-GT yang elegan.</p>
+    </div>
+
+    <div class="post">
+      <img src="img/vantage.jpg" alt="Vantage">
+      <p><strong>Aston Martin Vantage</strong> — Vantage adalah sports car yang agresif dengan mesin V8 bertenaga tinggi dan desain aerodinamis yang tajam. Mobil ini memberikan pengalaman berkendara sporty yang responsif, kontrol presisi, dan sensasi analog yang menyenangkan. Detail craftsmanship interior dan eksterior menonjolkan karakter unik Aston Martin, menjadikannya favorit penggemar mobil sport mewah.</p>
+    </div>
+
+    <div class="post">
+      <img src="img/valhalla.jpg" alt="Valhalla">
+      <p><strong>Aston Martin Valhalla</strong> — Valhalla adalah hybrid supercar mid-engine yang menampilkan teknologi performa tinggi. Mesin V6 twin-turbo dan motor listrik bekerja sama untuk akselerasi instan, sedangkan chassis ringan dan aerodinamika canggih memastikan handling presisi. Desain futuristik dipadukan dengan detail interior premium, menciptakan kombinasi teknologi dan seni yang khas Aston Martin.</p>
+    </div>
+
+    <div class="post">
+      <img src="img/rapide-e.jpg" alt="Rapide E">
+      <p><strong>Aston Martin Rapide E</strong> — Rapide E adalah sedan listrik eksklusif yang mengusung performa tinggi dan emisi nol. Motor listrik kembar menghasilkan tenaga instan dengan pengaturan chassis yang seimbang untuk kenyamanan dan kontrol. Mobil ini memadukan desain elegan khas Aston Martin dengan inovasi teknologi, menjadikannya contoh harmonisasi antara tradisi dan masa depan otomotif.</p>
+    </div>
+
+    <div class="post">
+      <img src="img/one-77.jpg" alt="One-77">
+      <p><strong>Aston Martin One-77</strong> — One-77 adalah hypercar edisi terbatas, dengan desain aerodinamis menawan dan mesin V12 atmosferik bertenaga besar. Produksi hanya 77 unit membuat mobil ini sangat langka dan eksklusif. Detail interior dan eksterior dibuat tangan, menonjolkan craftsmanship khas Aston Martin, menjadikannya simbol prestise dan performa ekstrem.</p>
+    </div>
+
+    <div class="post">
+      <img src="img/vanquish.jpg" alt="Vanquish">
+      <p><strong>Aston Martin Vanquish</strong> — Vanquish adalah grand tourer yang menggabungkan performa tinggi dan desain elegan. Mesin V12 memberikan tenaga responsif, aerodinamika aktif menambah stabilitas, dan interior mewah menghadirkan kenyamanan jangka panjang. Mobil ini menampilkan filosofi Aston Martin: keseimbangan antara kekuatan, keindahan, dan pengalaman berkendara eksklusif.</p>
+    </div>
+
+    <div class="post">
+      <img src="img/vulcan.jpg" alt="Vulcan">
+      <p><strong>Aston Martin Vulcan</strong> — Vulcan adalah supercar track-only, fokus pada performa ekstrem dan pengendalian presisi. Chassis ringan, aerodinamika agresif, dan mesin V12 bertenaga besar membuat mobil ini siap untuk lintasan profesional. Meskipun dirancang untuk sirkuit, detail interior tetap menonjolkan craftsmanship Aston Martin yang unik, menjadikannya koleksi hypercar eksklusif bagi penggemar sejati.</p>
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 LuxDrive. Semua Hak Dilindungi.</p>
+  </footer>
+
+</body>
+</html>
